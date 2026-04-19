@@ -2,6 +2,7 @@ import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 import { cn } from '../lib/cn';
 
@@ -20,6 +21,8 @@ const buttonVariants = cva(
         ghost: 'hover:text-primary-foreground/50',
         link: 'hover:underline',
         icon: 'bg-transparent rounded text-muted-foreground hover:text-foreground',
+        capsule:
+          'bg-text-high text-bg-panel rounded-full pl-4 pr-1.5 py-1.5 gap-2 items-center inline-flex hover:bg-brand-hover transition-all',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -41,17 +44,25 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  arrow?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, arrow, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
     return (
       <Comp
         className={twMerge(cn(buttonVariants({ variant, size, className })))}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+        {arrow && (
+          <span className="w-6 h-6 rounded-full bg-bg-panel text-text-high inline-grid place-items-center ml-1">
+            <ArrowRightIcon className="w-3 h-3" />
+          </span>
+        )}
+      </Comp>
     );
   }
 );
