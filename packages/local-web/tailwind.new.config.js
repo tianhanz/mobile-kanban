@@ -128,9 +128,12 @@ module.exports = {
         border: "hsl(var(--border))",
       },
       borderRadius: {
-        lg: getSize('lg', radiusMultiplier),
-        md: getSize('sm', radiusMultiplier),
-        sm: getSize('xs', radiusMultiplier),
+        sm: '4px',
+        DEFAULT: '8px',
+        md: '10px',
+        lg: '14px',
+        xl: '18px',
+        full: '9999px',
       },
       borderWidth: {
         base: getSize('base'),

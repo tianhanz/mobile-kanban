@@ -33,6 +33,7 @@ function RootRouteComponent() {
     <I18nextProvider i18n={i18n}>
       <ThemeProvider initialTheme={config?.theme || ThemeMode.SYSTEM}>
         <UserProvider>
+          <div className="warm-sun-overlay" />
           <Outlet />
         </UserProvider>
       </ThemeProvider>
