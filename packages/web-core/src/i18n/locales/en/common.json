@@ -84,7 +84,7 @@
   "signOut": "Sign out",
   "oauth": {
     "title": "Sign in to Loom",
-    "description": "Sign in to join organizations and share tasks with your team",
+    "description": "Sign in to join organizations and share threads with your team",
     "continueWithGitHub": "Continue with GitHub",
     "continueWithGoogle": "Continue with Google",
     "waitingTitle": "Complete Authentication",
@@ -304,7 +304,7 @@
     "actions": {
       "showHelp": "Show this help",
       "closeCancel": "Close/cancel",
-      "createNewTask": "Create new task",
+      "createNewTask": "Create new thread",
       "deleteSelected": "Delete selected",
       "focusSearch": "Focus search",
       "moveDown": "Move down",
@@ -385,7 +385,7 @@
     "closePanel": "Close panel",
     "copyLink": "Copy link",
     "issueTitlePlaceholder": "Issue Title...",
-    "issueDescriptionPlaceholder": "Enter task description here...",
+    "issueDescriptionPlaceholder": "Enter issue description here...",
     "createDraftWorkspaceImmediately": "Create draft workspace immediately",
     "createDraftWorkspaceDescription": "After creating the issue, open the workspace creation form pre-filled with the issue details",
     "createIssue": "Create Issue",

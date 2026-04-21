@@ -460,8 +460,8 @@ export const keyBindings: KeyBinding[] = [
     action: Action.DELETE_TASK,
     keys: 'd',
     scopes: [Scope.KANBAN],
-    description: 'Delete selected task',
-    group: 'Task Details',
+    description: 'Delete selected thread',
+    group: 'Thread Details',
   },
 
   // Approval actions

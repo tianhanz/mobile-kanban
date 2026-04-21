@@ -69,7 +69,7 @@
       },
       "taskExecution": {
         "title": "Default Coding Agent",
-        "description": "Choose the default coding agent for tasks.",
+        "description": "Choose the default coding agent for threads.",
         "executor": {
           "label": "Default Agent Configuration",
           "placeholder": "Select profile",
@@ -207,7 +207,7 @@
           "helper": "Play a sound when workspaces finish running.",
           "fileLabel": "Sound",
           "filePlaceholder": "Select sound",
-          "fileHelper": "Choose the sound to play when tasks complete. Click the volume button to preview."
+          "fileHelper": "Choose the sound to play when threads complete. Click the volume button to preview."
         },
         "push": {
           "label": "Push Notifications",
@@ -233,13 +233,13 @@
       },
       "taskTemplates": {
         "title": "Tags",
-        "description": "Create reusable text snippets that can be inserted into task descriptions using @tag_name."
+        "description": "Create reusable text snippets that can be inserted into thread descriptions using @tag_name."
       },
       "tags": {
         "manager": {
-          "title": "Task Tags",
+          "title": "Thread Tags",
           "addTag": "Add Tag",
-          "noTags": "No tags yet. Create reusable text snippets for common task descriptions. Use @tag_name in any task.",
+          "noTags": "No tags yet. Create reusable text snippets for common thread descriptions. Use @tag_name in any thread.",
           "table": {
             "tagName": "Tag Name",
             "content": "Content",
@@ -257,14 +257,14 @@
           "tagName": {
             "label": "Tag Name",
             "required": "*",
-            "hint": "Use this name with @ in task descriptions: @{{tagName}}",
+            "hint": "Use this name with @ in thread descriptions: @{{tagName}}",
             "placeholder": "e.g., bug_fix, test_plan, api_docs",
             "error": "Tag name cannot contain spaces. Use underscores instead (e.g., my_tag)"
           },
           "content": {
             "label": "Content",
             "required": "*",
-            "hint": "Text that will be inserted when you use @{{tagName}} in task descriptions",
+            "hint": "Text that will be inserted when you use @{{tagName}} in thread descriptions",
             "placeholder": "Enter the text that will be inserted when you use this tag"
           },
           "errors": {
@@ -297,7 +297,7 @@
         "description": "Try out experimental features before they're released.",
         "workspaces": {
           "label": "Enable Workspaces Beta",
-          "helper": "Use the new workspaces interface when viewing workspaces. Tasks will open in task view first, and attempts will open in the new workspaces view."
+          "helper": "Use the new workspaces interface when viewing workspaces. Threads will open in thread view first, and attempts will open in the new workspaces view."
         }
       }
     },

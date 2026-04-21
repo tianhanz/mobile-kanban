@@ -8,9 +8,9 @@
       "placeholder": "e.g acme Corp"
     }
   },
-  "loading": "Loading tasks...",
+  "loading": "Loading threads...",
   "actions": {
-    "addTask": "Add task"
+    "addTask": "Add thread"
   },
   "rebase": {
     "common": {
@@ -18,7 +18,7 @@
       "inProgress": "Rebasing..."
     },
     "dialog": {
-      "title": "Rebase Task Attempt",
+      "title": "Rebase Thread Attempt",
       "description": "Choose a new base branch to rebase this workspace onto.",
       "upstreamLabel": "Upstream Branch",
       "upstreamPlaceholder": "Select an upstream branch",
@@ -203,7 +203,7 @@
   },
   "git": {
     "labels": {
-      "taskBranch": "Task Branch"
+      "taskBranch": "Thread Branch"
     },
     "branch": {
       "current": "current"
@@ -256,7 +256,7 @@
       "prMerged": "PR #{{number}} is already merged",
       "loginRequired": {
         "title": "Sign in to manage git actions",
-        "description": "Sign in to Loom so you can push branches, merge changes, or open pull requests for this task.",
+        "description": "Sign in to Loom so you can push branches, merge changes, or open pull requests for this thread.",
         "action": "Sign in"
       }
     },
@@ -383,9 +383,9 @@
     }
   },
   "taskFormDialog": {
-    "createTitle": "Create New Task",
-    "editTitle": "Edit Task",
-    "titlePlaceholder": "Task title...",
+    "createTitle": "Create New Thread",
+    "editTitle": "Edit Thread",
+    "titlePlaceholder": "Thread title...",
     "descriptionPlaceholder": "Add more details (optional). Type @ to search files.",
     "statusLabel": "Status",
     "statusOptions": {
@@ -399,7 +399,7 @@
     "attachFile": "Attach file",
     "dropImagesHere": "Drop images here",
     "updating": "Updating...",
-    "updateTask": "Update Task",
+    "updateTask": "Update Thread",
     "starting": "Starting...",
     "creating": "Creating...",
     "create": "Create",
@@ -481,7 +481,7 @@
   },
   "createWorkspaceFromPr": {
     "title": "Create Workspace from PR",
-    "description": "Select an open pull request to create a workspace from. A task will be created automatically using the PR title.",
+    "description": "Select an open pull request to create a workspace from. A thread will be created automatically using the PR title.",
     "repositoryLabel": "Repository",
     "remoteLabel": "Remote",
     "pullRequestLabel": "Pull Request",

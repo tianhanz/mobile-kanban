@@ -1000,7 +1000,7 @@ export function KanbanContainer() {
                           type="button"
                           onClick={() => handleAddTask(status.id)}
                           className="p-half rounded-sm text-low hover:text-normal hover:bg-secondary transition-colors"
-                          aria-label="Add task"
+                          aria-label="Add thread"
                         >
                           <PlusIcon className="size-icon-xs" weight="bold" />
                         </button>
