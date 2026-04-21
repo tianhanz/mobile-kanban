@@ -9,64 +9,118 @@ html {
   overscroll-behavior: none;
 }
 
-/* 1) THEME TOKENS */
+/*
+ * Loom Claude-light palette.
+ *
+ * Canonical Loom color tokens are declared as `--loom-*` (raw values) and
+ * as `--*` HSL-channel tokens (consumed by the Tailwind config via
+ * `hsl(var(--...))`). Existing semantic variable names such as --brand,
+ * --bg-primary, --text-high, etc. are preserved and now map to the Loom
+ * palette so downstream components keep working.
+ */
+
 @layer base {
-  /* Light defaults */
+  /* Light defaults (Loom Claude-light) */
   :root {
     color-scheme: light;
-    --_background: 0 0% 95%;
-    --_foreground: 0 0% 5%;
-    --_primary: 0 0% 5%;
-    --_primary-foreground: 0 0% 100%;
-    --_secondary: 0 0% 95%;
-    --_secondary-foreground: 0 0% 16%;
-    --_muted: 0 0% 89%;
-    --_muted-foreground: 0 0% 56%;
-    --_accent: 0 0% 92%;
-    --_accent-foreground: 0 0% 5%;
-    --_destructive: 0 59% 57%;
+
+    /* ------------------------------------------------------------------ */
+    /*  Loom palette — authoritative values (HSL channels for Tailwind).  */
+    /* ------------------------------------------------------------------ */
+
+    /* Surfaces */
+    --loom-bg: #faf9f7;
+    --loom-surface: #ffffff;
+    --loom-surface-2: #f3f1ed;
+    --loom-surface-3: #eae7e0;
+
+    /* Ink */
+    --loom-ink: #1a1714;
+    --loom-ink-2: #3a342c;
+    --loom-ink-dim: #8a8173;
+    --loom-ink-faint: #b5ac9c;
+
+    /* Lines */
+    --loom-line: rgba(26, 23, 20, 0.08);
+    --loom-line-2: rgba(26, 23, 20, 0.14);
+
+    /* Brand — softened Claude orange */
+    --loom-brand: #c96f4d;
+    --loom-brand-hover: #b55a3c;
+    --loom-brand-soft: rgba(201, 111, 77, 0.08);
+    --loom-brand-soft-2: rgba(201, 111, 77, 0.14);
+
+    /* Semantic */
+    --loom-leaf: #6b8e4e;
+    --loom-leaf-soft: rgba(107, 142, 78, 0.1);
+    --loom-amber: #c89040;
+    --loom-amber-soft: rgba(200, 144, 64, 0.1);
+    --loom-err: #b94a4a;
+    --loom-err-soft: rgba(185, 74, 74, 0.08);
+    --loom-indigo: #6b6a8e;
+    --loom-indigo-soft: rgba(107, 106, 142, 0.1);
+
+    /* Fonts */
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+    /* ------------------------------------------------------------------ */
+    /*  HSL channel tokens (consumed via hsl(var(--...)) in tailwind).    */
+    /* ------------------------------------------------------------------ */
+
+    --_background: 40 25% 97%; /* --loom-bg */
+    --_foreground: 24 11% 9%; /* --loom-ink */
+    --_primary: 24 11% 9%; /* --loom-ink */
+    --_primary-foreground: 40 25% 97%;
+    --_secondary: 40 19% 94%; /* --loom-surface-2 */
+    --_secondary-foreground: 32 14% 20%; /* --loom-ink-2 */
+    --_muted: 40 19% 89%; /* --loom-surface-3 */
+    --_muted-foreground: 35 10% 50%; /* --loom-ink-dim */
+    --_accent: 40 19% 94%;
+    --_accent-foreground: 24 11% 9%;
+    --_destructive: 0 45% 51%; /* --loom-err */
     --_destructive-foreground: 0 0% 100%;
-    --_border: 0 0% 85%;
-    --_input: 0 0% 96%;
-    --_ring: 0 0% 5%;
+    --_border: 32 14% 20%; /* --loom-ink hue; opacity applied via rgba --line */
+    --_input: 0 0% 100%;
+    --_ring: 16 54% 55%;
     --_radius: 0.125rem;
 
-    /* Status (light) */
-    --_success: 117 38% 50%;
-    --_success-foreground: 117 38% 20%;
-    --_warning: 32 95% 44%;
-    --_warning-foreground: 32 95% 14%;
-    --_info: 217 91% 60%;
-    --_info-foreground: 0 0% 5%;
-    --_neutral: 0 0% 92%;
-    --_neutral-foreground: 0 0% 5%;
+    /* Status (light) — mapped to Loom semantic colors */
+    --_success: 91 29% 43%; /* --loom-leaf */
+    --_success-foreground: 91 29% 20%;
+    --_warning: 35 57% 52%; /* --loom-amber */
+    --_warning-foreground: 35 57% 14%;
+    --_info: 242 14% 49%; /* --loom-indigo */
+    --_info-foreground: 242 14% 14%;
+    --_neutral: 40 19% 89%;
+    --_neutral-foreground: 24 11% 9%;
 
     /* Console (light) */
     --_console-background: 0 0% 100%;
-    --_console-foreground: 0 0% 5%;
-    --_console-success: 117 38% 50%;
-    --_console-error: 0 59% 57%;
+    --_console-foreground: 24 11% 9%;
+    --_console-success: 91 29% 43%;
+    --_console-error: 0 45% 51%;
 
     /* Syntax highlighting (light) */
-    --_syntax-keyword: #d73a49;
-    --_syntax-function: #6f42c1;
-    --_syntax-constant: #005cc5;
-    --_syntax-string: #032f62;
-    --_syntax-variable: #e36209;
-    --_syntax-comment: #6a737d;
-    --_syntax-tag: #22863a;
-    --_syntax-punctuation: #24292e;
-    --_syntax-deleted: #b31d28;
+    --_syntax-keyword: #b55a3c;
+    --_syntax-function: #6b6a8e;
+    --_syntax-constant: #c89040;
+    --_syntax-string: #6b8e4e;
+    --_syntax-variable: #c96f4d;
+    --_syntax-comment: #8a8173;
+    --_syntax-tag: #6b8e4e;
+    --_syntax-punctuation: #1a1714;
+    --_syntax-deleted: #b94a4a;
 
     /* Text (light) */
-    --text-high: 0 0% 5%;
-    --text-normal: 0 0% 20%;
-    --text-low: 0 0% 39%;
+    --text-high: 24 11% 9%; /* --loom-ink */
+    --text-normal: 32 14% 20%; /* --loom-ink-2 */
+    --text-low: 35 10% 50%; /* --loom-ink-dim */
 
-    /* Background (light) - with VS Code overrides */
-    --_bg-primary-default: 0 0% 100%;
-    --_bg-secondary-default: 0 0% 95%;
-    --_bg-panel-default: 0 0% 89%;
+    /* Background (light) */
+    --_bg-primary-default: 40 25% 97%; /* --loom-bg */
+    --_bg-secondary-default: 40 19% 94%; /* --loom-surface-2 */
+    --_bg-panel-default: 40 19% 89%; /* --loom-surface-3 */
     --bg-primary: var(--vscode-editor-background, var(--_bg-primary-default));
     --bg-secondary: var(
       --vscode-editorWidget-background,
@@ -75,57 +129,56 @@ html {
     --bg-panel: var(--vscode-input-background, var(--_bg-panel-default));
 
     /* Accent (light) */
-    --brand: 25 82% 54%;
-    --brand-hover: 25 75% 62%;
-    --brand-secondary: 25 82% 37%;
-    --error: 0 59% 57%;
-    --success: 117 38% 50%;
-    --merged: 271 81% 46%;
+    --brand: 16 54% 55%; /* --loom-brand */
+    --brand-hover: 16 50% 47%; /* --loom-brand-hover */
+    --brand-secondary: 16 50% 38%;
+    --error: 0 45% 51%;
+    --success: 91 29% 43%;
+    --merged: 242 14% 49%;
 
     /* Text on accent */
     --text-on-brand: 0 0% 100%;
   }
 
-  /* Dark mode */
+  /* Dark mode — keep the palette warm but darker; used only where `.dark` is applied */
   .dark {
     color-scheme: dark;
 
-    /* Internal variables (dark) - needed for public tokens */
-    --_background: 0 0% 13%;
-    --_foreground: 0 0% 96%;
-    --_primary: 240 4.8% 95.9%;
-    --_primary-foreground: 240 5.9% 10%;
-    --_secondary: 0 0% 12%;
-    --_secondary-foreground: 0 0% 77%;
-    --_muted: 0 0% 16%;
-    --_muted-foreground: 0 0% 64%;
-    --_accent: 0 0% 20%;
-    --_accent-foreground: 0 0% 96%;
-    --_destructive: 0 59% 57%;
-    --_destructive-foreground: 0 0% 96%;
-    --_border: 0 0% 20%;
-    --_input: 0 0% 20%;
-    --_ring: 0 0% 77%;
+    --_background: 24 11% 9%;
+    --_foreground: 40 25% 97%;
+    --_primary: 40 25% 97%;
+    --_primary-foreground: 24 11% 9%;
+    --_secondary: 30 10% 14%;
+    --_secondary-foreground: 36 17% 80%;
+    --_muted: 30 10% 18%;
+    --_muted-foreground: 36 17% 66%;
+    --_accent: 30 10% 20%;
+    --_accent-foreground: 40 25% 97%;
+    --_destructive: 0 45% 51%;
+    --_destructive-foreground: 40 25% 97%;
+    --_border: 30 10% 20%;
+    --_input: 30 10% 14%;
+    --_ring: 16 54% 55%;
 
     /* Status (dark) */
-    --_success: 117 38% 50%;
-    --_success-foreground: 117 38% 90%;
-    --_warning: 32.2 95% 44.1%;
-    --_warning-foreground: 32.2 95% 90%;
-    --_info: 217.2 91.2% 59.8%;
-    --_info-foreground: 217.2 91.2% 90%;
-    --_neutral: 0 0% 20%;
-    --_neutral-foreground: 0 0% 90%;
+    --_success: 91 29% 43%;
+    --_success-foreground: 91 29% 85%;
+    --_warning: 35 57% 52%;
+    --_warning-foreground: 35 57% 85%;
+    --_info: 242 14% 55%;
+    --_info-foreground: 242 14% 85%;
+    --_neutral: 30 10% 18%;
+    --_neutral-foreground: 40 25% 97%;
 
     /* Text (dark) */
-    --text-high: 0 0% 96%;
-    --text-normal: 0 0% 77%;
-    --text-low: 0 0% 56%;
+    --text-high: 40 25% 97%;
+    --text-normal: 36 17% 80%;
+    --text-low: 36 17% 66%;
 
-    /* Background (dark) - with VS Code overrides */
-    --_bg-primary-default: 0 0% 13%;
-    --_bg-secondary-default: 0 0% 11%;
-    --_bg-panel-default: 0 0% 16%;
+    /* Background (dark) */
+    --_bg-primary-default: 24 11% 9%;
+    --_bg-secondary-default: 30 10% 14%;
+    --_bg-panel-default: 30 10% 18%;
     --bg-primary: var(--vscode-editor-background, var(--_bg-primary-default));
     --bg-secondary: var(
       --vscode-editorWidget-background,
@@ -134,31 +187,32 @@ html {
     --bg-panel: var(--vscode-input-background, var(--_bg-panel-default));
 
     /* Accent (dark) */
-    --brand: 25 82% 54%;
-    --brand-hover: 25 75% 62%;
-    --brand-secondary: 25 82% 37%;
-    --error: 0 59% 57%;
-    --success: 117 38% 50%;
-    --merged: 271 81% 66%;
+    --brand: 16 54% 55%;
+    --brand-hover: 16 50% 47%;
+    --brand-secondary: 16 50% 38%;
+    --error: 0 45% 51%;
+    --success: 91 29% 43%;
+    --merged: 242 14% 55%;
 
     /* Text on accent */
     --text-on-brand: 0 0% 100%;
+
     /* Console (dark) */
-    --_console-background: 0 0% 0%;
-    --_console-foreground: 210 40% 98%;
-    --_console-success: 138.5 76.5% 47.7%;
-    --_console-error: 0 84.2% 60.2%;
+    --_console-background: 24 11% 9%;
+    --_console-foreground: 40 25% 97%;
+    --_console-success: 91 29% 43%;
+    --_console-error: 0 45% 51%;
 
     /* Syntax highlighting (dark) */
-    --_syntax-keyword: #ff7b72;
-    --_syntax-function: #d2a8ff;
-    --_syntax-constant: #79c0ff;
-    --_syntax-string: #a5d6ff;
-    --_syntax-variable: #ffa657;
-    --_syntax-comment: #8b949e;
-    --_syntax-tag: #7ee787;
-    --_syntax-punctuation: #c9d1d9;
-    --_syntax-deleted: #ffdcd7;
+    --_syntax-keyword: #e08a68;
+    --_syntax-function: #a8a7c9;
+    --_syntax-constant: #dcb266;
+    --_syntax-string: #9fb880;
+    --_syntax-variable: #d98b6a;
+    --_syntax-comment: #b5ac9c;
+    --_syntax-tag: #9fb880;
+    --_syntax-punctuation: #e6e1d6;
+    --_syntax-deleted: #d87575;
   }
 }
 
@@ -252,8 +306,12 @@ html {
     --syntax-punctuation: var(--_syntax-punctuation);
     --syntax-deleted: var(--_syntax-deleted);
 
+    /* Lines / separators (raw rgba — use directly, not via hsl()) */
+    --line: rgba(26, 23, 20, 0.08);
+    --line-2: rgba(26, 23, 20, 0.14);
+
     /* Allotment */
-    --separator-border: hsl(var(--border));
+    --separator-border: var(--line);
     --focus-border: hsl(var(--brand));
   }
 }
@@ -272,6 +330,17 @@ html {
     @apply min-h-screen;
     @apply font-normal;
     @apply bg-background text-foreground font-ibm-plex-sans;
+  }
+
+  body {
+    font-family: var(--sans);
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--mono);
   }
 
   *:focus {
@@ -471,14 +540,14 @@ html {
     font-size: var(--mobile-font-scale, 100%);
   }
 
-  /* Background colors for PWA safe-area */
+  /* Background colors for PWA safe-area — Loom palette */
   html,
   body {
-    background-color: #f2f2f2;
+    background-color: #faf9f7;
   }
 
   html.dark body,
   html.dark {
-    background-color: #212121;
+    background-color: #1a1714;
   }
 }

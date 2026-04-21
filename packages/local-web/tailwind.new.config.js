@@ -105,10 +105,18 @@ module.exports = {
         high: "hsl(var(--text-high))",
         normal: "hsl(var(--text-normal))",
         low: "hsl(var(--text-low))",
+        // Loom ink aliases (parallel naming for the new palette)
+        ink: "hsl(var(--text-high))",
+        'ink-2': "hsl(var(--text-normal))",
+        'ink-dim': "hsl(var(--text-low))",
         // Background colors: bg-primary, bg-secondary, bg-panel
         primary: "hsl(var(--bg-primary))",
         secondary: "hsl(var(--bg-secondary))",
         panel: "hsl(var(--bg-panel))",
+        // Loom surface aliases
+        surface: "hsl(var(--bg-primary))",
+        'surface-2': "hsl(var(--bg-secondary))",
+        'surface-3': "hsl(var(--bg-panel))",
         // Accent colors
         brand: "hsl(var(--brand))",
         'brand-hover': "hsl(var(--brand-hover))",
@@ -116,6 +124,11 @@ module.exports = {
         error: "hsl(var(--error))",
         success: "hsl(var(--success))",
         merged: "hsl(var(--merged))",
+        // Loom semantic aliases
+        leaf: "hsl(var(--success))",
+        amber: "hsl(var(--_warning))",
+        err: "hsl(var(--error))",
+        indigo: "hsl(var(--_info))",
         // Text on accent
         'on-brand': "hsl(var(--text-on-brand))",
         // shadcn-style colors (used by @apply in CSS base layer)
