@@ -1,6 +1,7 @@
 {
-  "name": "vibe-kanban",
+  "name": "loom",
   "version": "0.1.43",
+  "description": "A harness engineer's workstation.",
   "private": true,
   "bin": {
     "vibe-kanban": "npx-cli/bin/cli.js"

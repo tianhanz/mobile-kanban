@@ -1,15 +1,16 @@
 {
-  "name": "Vibe Kanban",
-  "short_name": "VK",
+  "name": "Loom",
+  "short_name": "Loom",
+  "description": "A harness engineer's workstation.",
   "icons": [
     {
-      "src": "/favicon-vk-light.svg",
+      "src": "/loom-favicon.svg",
       "sizes": "any",
       "purpose": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "/favicon-vk-light-maskable.svg",
+      "src": "/loom-favicon.svg",
       "sizes": "any",
       "purpose": "maskable",
       "type": "image/svg+xml"
@@ -20,7 +21,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#f2f2f2",
-  "background_color": "#f2f2f2",
+  "theme_color": "#faf9f7",
+  "background_color": "#faf9f7",
   "display": "standalone"
 }

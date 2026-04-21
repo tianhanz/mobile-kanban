@@ -2,14 +2,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { CheckIcon, XIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import { ThemeMode } from 'shared/types';
 import {
   OAuthDialog,
   type OAuthProvider,
 } from '@/shared/dialogs/global/OAuthDialog';
 import { usePostHog } from 'posthog-js/react';
 import { useUserSystem } from '@/shared/hooks/useUserSystem';
-import { useTheme } from '@/shared/hooks/useTheme';
 import { OAuthSignInButton } from '@vibe/ui/components/OAuthButtons';
 import { PrimaryButton } from '@vibe/ui/components/PrimaryButton';
 import { oauthApi, type AuthMethodsResponse } from '@/shared/lib/api';
@@ -62,19 +60,10 @@ type SignInCompletionMethod =
   | 'local_auth'
   | 'oauth_github'
   | 'oauth_google';
-function resolveTheme(theme: ThemeMode): 'light' | 'dark' {
-  if (theme === ThemeMode.SYSTEM) {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-  }
-  return theme === ThemeMode.DARK ? 'dark' : 'light';
-}
 
 export function OnboardingSignInPage() {
   const appNavigation = useAppNavigation();
   const { t } = useTranslation('common');
-  const { theme } = useTheme();
   const posthog = usePostHog();
   const { config, loginStatus, loading, updateAndSaveConfig } = useUserSystem();
   const setSelectedOrgId = useOrganizationStore((s) => s.setSelectedOrgId);
@@ -112,10 +101,7 @@ export function OnboardingSignInPage() {
     [posthog]
   );
 
-  const logoSrc =
-    resolveTheme(theme) === 'dark'
-      ? '/vibe-kanban-logo-dark.svg'
-      : '/vibe-kanban-logo.svg';
+  const logoSrc = '/loom-logo.svg';
 
   const isLoggedIn = loginStatus?.status === 'loggedin';
 
@@ -278,7 +264,7 @@ export function OnboardingSignInPage() {
             <div className="flex justify-center">
               <img
                 src={logoSrc}
-                alt="Vibe Kanban"
+                alt="Loom"
                 className="h-8 w-auto logo"
               />
             </div>

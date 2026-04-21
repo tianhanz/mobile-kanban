@@ -28,11 +28,9 @@ import {
   BaseCodingAgent,
   EditorType,
   SoundFile,
-  ThemeMode,
   type EditorConfig,
 } from 'shared/types';
 import { useUserSystem } from '@/shared/hooks/useUserSystem';
-import { useTheme } from '@/shared/hooks/useTheme';
 import { AgentIcon, getAgentName } from '@/shared/components/AgentIcon';
 import { IdeIcon } from '@/shared/components/IdeIcon';
 import { getIdeName } from '@/shared/lib/ideName';
@@ -137,18 +135,8 @@ function randomDefaultSoundFile(): SoundFile {
   return SOUND_OPTIONS[randomIndex]?.value ?? SoundFile.COW_MOOING;
 }
 
-function resolveTheme(theme: ThemeMode): 'light' | 'dark' {
-  if (theme === ThemeMode.SYSTEM) {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-  }
-  return theme === ThemeMode.DARK ? 'dark' : 'light';
-}
-
 export function LandingPage() {
   const appNavigation = useAppNavigation();
-  const { theme } = useTheme();
   const { config, profiles, updateAndSaveConfig, loading } = useUserSystem();
   const posthog = usePostHog();
 
@@ -175,10 +163,7 @@ export function LandingPage() {
     [posthog]
   );
 
-  const logoSrc =
-    resolveTheme(theme) === 'dark'
-      ? '/vibe-kanban-logo-dark.svg'
-      : '/vibe-kanban-logo.svg';
+  const logoSrc = '/loom-logo.svg';
 
   useEffect(() => {
     if (!config || initialized) return;
@@ -337,7 +322,7 @@ export function LandingPage() {
         {/* Header */}
         <header className="shrink-0 space-y-base p-double pb-base">
           <div className="flex items-center justify-between">
-            <img src={logoSrc} alt="Vibe Kanban" className="h-8 w-auto logo" />
+            <img src={logoSrc} alt="Loom" className="h-8 w-auto logo" />
             <div className="flex flex-wrap items-center gap-2">
               {SOCIAL_LINKS.map((link) => (
                 <PrimaryButton
@@ -357,7 +342,7 @@ export function LandingPage() {
                 weight="fill"
               />
               <p className="text-sm text-normal">
-                Vibe Kanban runs AI coding agents with{' '}
+                Loom runs AI coding agents with{' '}
                 <code>--dangerously-skip-permissions</code> /{' '}
                 <code>--yolo</code> by default. Always review what agents are
                 doing.{' '}
