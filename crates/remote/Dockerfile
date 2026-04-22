@@ -25,7 +25,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
 COPY packages/remote-web/ packages/remote-web/
-COPY packages/local-web/tailwind.new.config.js packages/local-web/tailwind.new.config.js
+COPY packages/local-web/tailwind.new.config.cjs packages/local-web/tailwind.new.config.cjs
 COPY packages/public/ packages/public/
 COPY packages/ui/ packages/ui/
 COPY packages/web-core/ packages/web-core/

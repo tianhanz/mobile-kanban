@@ -520,7 +520,7 @@ html {
   }
 }
 
-@config '../../../../../local-web/tailwind.new.config.js';
+@config '../../../../../local-web/tailwind.new.config.cjs';
 
 /* Hide Virtuoso Message List license watermark warning (scoped to virtuoso wrappers only) */
 .virtuoso-license-wrapper
