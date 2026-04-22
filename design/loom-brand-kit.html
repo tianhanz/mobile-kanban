@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Loom · Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf9f7;
+  --surface:#ffffff;
+  --surface-2:#f3f1ed;
+  --ink:#1a1714;
+  --ink-2:#3a342c;
+  --ink-dim:#8a8173;
+  --ink-faint:#b5ac9c;
+  --line:rgba(26,23,20,.08);
+  --line-2:rgba(26,23,20,.14);
+  --brand:#c96f4d;
+  --brand-soft:rgba(201,111,77,.08);
+  --leaf:#6b8e4e;
+  --amber:#c89040;
+  --indigo:#6b6a8e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);
+  padding:60px 28px;min-height:100vh;
+  letter-spacing:-.005em;line-height:1.55;
+}
+.page{max-width:1100px;margin:0 auto}
+
+/* Hero */
+.hero{
+  padding:48px 0 60px;border-bottom:.5px solid var(--line);margin-bottom:50px;
+}
+.hero .crumb{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.28em;font-weight:500;
+  color:var(--ink-dim);text-transform:uppercase;margin-bottom:18px;
+}
+.hero h1{
+  font-size:44px;font-weight:600;letter-spacing:-.035em;line-height:1.05;
+  margin-bottom:12px;
+}
+.hero .tagline{
+  font-size:17px;color:var(--ink-2);line-height:1.5;max-width:540px;
+}
+.hero .tagline em{color:var(--brand);font-style:normal;font-weight:500}
+.hero-logo-wrap{
+  margin-top:36px;display:flex;align-items:center;gap:22px;
+}
+
+/* Section */
+.section{margin-bottom:60px}
+.section-header{
+  display:flex;align-items:baseline;gap:16px;margin-bottom:8px;
+}
+.section-header .num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.28em;font-weight:600;
+  color:var(--brand);text-transform:uppercase;
+}
+.section-header h2{
+  font-size:22px;font-weight:600;letter-spacing:-.02em;
+}
+.section-desc{
+  font-size:14.5px;color:var(--ink-2);line-height:1.6;margin-bottom:26px;
+  max-width:780px;
+}
+
+/* Cards */
+.card{
+  background:var(--surface);border:.5px solid var(--line);
+  border-radius:16px;padding:28px;margin-bottom:14px;
+}
+.card .card-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;letter-spacing:.22em;font-weight:600;
+  color:var(--ink-dim);text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.card .card-label::after{content:"";flex:1;height:.5px;background:var(--line)}
+
+.logo-stage{
+  display:grid;place-items:center;
+  padding:40px 20px;background:var(--bg);border-radius:10px;
+  min-height:180px;
+}
+.logo-stage.dark{background:var(--ink)}
+.logo-stage.inkbrand{background:var(--brand)}
+.logo-stage.inkdark{background:var(--ink-2)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:720px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+.spec-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:.5px dashed var(--line);
+  font-size:13px;
+}
+.spec-row:last-child{border-bottom:0}
+.spec-row .k{color:var(--ink-dim);font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.04em}
+.spec-row .v{color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+
+/* Color swatch */
+.swatch-row{display:flex;gap:12px;flex-wrap:wrap}
+.swatch{
+  background:var(--surface);border:.5px solid var(--line);border-radius:12px;
+  padding:14px;width:calc(50% - 6px);min-width:200px;
+  display:flex;gap:12px;align-items:center;
+}
+@media (max-width:720px){.swatch{width:100%}}
+.swatch .chip{
+  width:52px;height:52px;border-radius:10px;flex:0 0 auto;
+  border:.5px solid rgba(0,0,0,.06);
+}
+.swatch .info .name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.swatch .info .hex{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-dim);letter-spacing:.04em}
+.swatch .info .use{font-size:11.5px;color:var(--ink-dim);margin-top:2px}
+
+/* Sizes row */
+.sizes{
+  display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;
+  padding:30px 20px;background:var(--bg);border-radius:10px;
+}
+.size-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.size-item .lbl{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;color:var(--ink-dim);letter-spacing:.1em;
+}
+
+/* Usage examples */
+.browser-mock{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;background:#eceae4;border-radius:10px 10px 0 0;
+}
+.browser-mock .dots{display:flex;gap:4px}
+.browser-mock .dots span{width:9px;height:9px;border-radius:50%;background:#d4ceb8}
+.browser-mock .url{
+  flex:1;padding:5px 10px;background:#f5f2ea;border-radius:4px;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  color:var(--ink-dim);display:flex;align-items:center;gap:6px;
+}
+.browser-mock .url svg{flex:0 0 auto}
+.browser-mock .url .domain{color:var(--ink-2);font-weight:500}
+
+.app-icons-row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;padding:30px}
+.ios-icon{
+  width:110px;height:110px;border-radius:24px;
+  display:grid;place-items:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.08),inset 0 0 0 1px rgba(255,255,255,.3);
+  position:relative;overflow:hidden;
+}
+.ios-icon.primary{background:linear-gradient(135deg,#d88567 0%,#b55a3c 100%)}
+.ios-icon.ink{background:linear-gradient(135deg,#3a342c 0%,#1a1714 100%)}
+.ios-icon.light{background:var(--bg);box-shadow:0 4px 14px rgba(0,0,0,.08),inset 0 0 0 1px var(--line)}
+.ios-icon .lbl-below{
+  position:absolute;bottom:-22px;left:0;right:0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;letter-spacing:.1em;text-align:center;color:var(--ink-dim);
+}
+
+/* Do/Don't */
+.dos-donts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:720px){.dos-donts{grid-template-columns:1fr}}
+.do-card,.dont-card{
+  padding:20px;border-radius:12px;border:.5px solid var(--line);
+}
+.do-card{background:rgba(107,142,78,.05);border-color:rgba(107,142,78,.2)}
+.dont-card{background:rgba(185,74,74,.05);border-color:rgba(185,74,74,.2)}
+.do-card .tag,.dont-card .tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;
+}
+.do-card .tag{color:var(--leaf)}
+.dont-card .tag{color:#b94a4a}
+.do-card p,.dont-card p{font-size:13px;color:var(--ink-2);line-height:1.55;margin:8px 0}
+
+/* Code */
+.code-block{
+  background:#252017;color:#e8e2d4;border-radius:10px;
+  padding:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;
+  line-height:1.7;overflow-x:auto;
+  white-space:pre;
+}
+.code-block .com{color:#8a7a52}
+.code-block .str{color:#c89a6b}
+.code-block .tag{color:#9bc478}
+.code-block .attr{color:#d9b976}
+
+/* CTA */
+.cta{
+  padding:24px 28px;background:var(--ink);color:var(--bg);border-radius:14px;
+  display:flex;align-items:center;gap:18px;margin-top:30px;
+}
+.cta .cta-text{flex:1}
+.cta .cta-text .t{font-size:15px;font-weight:600;margin-bottom:2px}
+.cta .cta-text .s{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="crumb">Brand Kit · v1.0.0</div>
+    <h1>Loom</h1>
+    <div class="tagline">A harness engineer's workstation. <em>Where you weave your work.</em></div>
+
+    <div class="hero-logo-wrap">
+      <!-- Primary logo · large -->
+      <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- 三条经线 (brand) -->
+        <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+        <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+        <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+        <!-- L 横画 (炭黑) -->
+        <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+        <!-- L 次级纬线 -->
+        <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <div>
+        <div style="font-size:56px;font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--ink)">Loom</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;margin-top:8px">v1.0.0 · April 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 · Concept -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">01</div>
+      <h2>Concept</h2>
+    </div>
+    <div class="section-desc">
+      Loom 的 logo 是字母 <strong style="color:var(--brand)">L</strong> —— 但它不是被画出来的。它是**由经线和纬线织出来的**。
+      三条橙色经线构成 L 的竖画，两条炭黑纬线构成 L 的横画。
+      经线是 <strong>Mission</strong>（长期的、贯穿的、骨架的）；纬线是 <strong>Task</strong>（即时的、横向的、具体的）。
+      Loom 的产品哲学——"用经纬织出工作"——被编码在 logo 里。
+    </div>
+
+    <div class="card">
+      <div class="card-label">Anatomy</div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center">
+        <div class="logo-stage" style="padding:30px;min-height:240px">
+          <svg width="240" height="240" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- 背景网格 -->
+            <g opacity=".15">
+              <line x1="20" y1="20" x2="100" y2="20" stroke="#8a8173" stroke-width=".5" stroke-dasharray="2,2"/>
+              <line x1="20" y1="78" x2="100" y2="78" stroke="#8a8173" stroke-width=".5" stroke-dasharray="2,2"/>
+              <line x1="20" y1="90" x2="100" y2="90" stroke="#8a8173" stroke-width=".5" stroke-dasharray="2,2"/>
+              <line x1="20" y1="100" x2="100" y2="100" stroke="#8a8173" stroke-width=".5" stroke-dasharray="2,2"/>
+            </g>
+            <!-- 标注 warp1 -->
+            <text x="12" y="14" font-family="IBM Plex Mono, monospace" font-size="4" fill="#c96f4d" font-weight="600" letter-spacing=".12em">WARP · MISSION</text>
+            <text x="50" y="107" font-family="IBM Plex Mono, monospace" font-size="4" fill="#3a342c" font-weight="600" letter-spacing=".12em">WEFT · TASK</text>
+
+            <!-- 三条经线 -->
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <!-- 纬线 -->
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+
+        <div>
+          <div class="spec-row"><span class="k">ViewBox</span><span class="v">0 0 120 120</span></div>
+          <div class="spec-row"><span class="k">Warps</span><span class="v">3 × <span style="color:var(--brand)">#c96f4d</span></span></div>
+          <div class="spec-row"><span class="k">Wefts</span><span class="v">2 × #1a1714</span></div>
+          <div class="spec-row"><span class="k">Warp coords</span><span class="v">x=32,38,44</span></div>
+          <div class="spec-row"><span class="k">Weft coords</span><span class="v">y=78,90</span></div>
+          <div class="spec-row"><span class="k">Warp width</span><span class="v">3px</span></div>
+          <div class="spec-row"><span class="k">Weft width</span><span class="v">5px primary / 3px secondary @ .5</span></div>
+          <div class="spec-row"><span class="k">Height range</span><span class="v">y=20 to y=90</span></div>
+          <div class="spec-row"><span class="k">Stroke linecap</span><span class="v">round</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 · Primary variants -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">02</div>
+      <h2>Primary variants</h2>
+    </div>
+    <div class="section-desc">四种基础变体覆盖绝大多数使用场景。</div>
+
+    <div class="grid-4">
+      <!-- Primary -->
+      <div class="card">
+        <div class="card-label">Primary</div>
+        <div class="logo-stage">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:10px;font-family:monospace;letter-spacing:.04em">loom-primary.svg · default</div>
+      </div>
+
+      <!-- Mono dark -->
+      <div class="card">
+        <div class="card-label">Mono · ink</div>
+        <div class="logo-stage">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#1a1714" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#1a1714" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#1a1714" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:10px;font-family:monospace;letter-spacing:.04em">loom-mono.svg · print/stamp</div>
+      </div>
+
+      <!-- Reversed -->
+      <div class="card">
+        <div class="card-label">Reversed</div>
+        <div class="logo-stage dark">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#d88567" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#d88567" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#d88567" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#faf9f7" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#faf9f7" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:10px;font-family:monospace;letter-spacing:.04em">loom-reversed.svg · dark bg</div>
+      </div>
+
+      <!-- Inverted (on brand) -->
+      <div class="card">
+        <div class="card-label">Solid · on brand</div>
+        <div class="logo-stage inkbrand">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#faf9f7" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#faf9f7" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#faf9f7" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#faf9f7" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#faf9f7" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+          </svg>
+        </div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:10px;font-family:monospace;letter-spacing:.04em">loom-on-brand.svg · hero bg</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 · Wordmark -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">03</div>
+      <h2>Wordmark</h2>
+    </div>
+    <div class="section-desc">logo + 产品名的组合。用于 header、email signature、slides 封面。</div>
+
+    <div class="card">
+      <div class="card-label">Horizontal</div>
+      <div style="padding:30px 20px;display:flex;flex-direction:column;gap:36px">
+
+        <!-- Large -->
+        <div style="display:flex;align-items:center;gap:18px">
+          <svg width="68" height="68" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div style="font-size:48px;font-weight:600;letter-spacing:-.035em;color:var(--ink);line-height:1">Loom</div>
+        </div>
+
+        <!-- Medium with version -->
+        <div style="display:flex;align-items:center;gap:12px">
+          <svg width="36" height="36" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="7" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div style="font-size:26px;font-weight:600;letter-spacing:-.025em;color:var(--ink);line-height:1">Loom</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;margin-left:6px;padding:3px 9px;background:var(--surface-2);border-radius:5px">v1.0</div>
+        </div>
+
+        <!-- With tagline -->
+        <div style="display:flex;align-items:flex-start;gap:14px;border-top:.5px solid var(--line);padding-top:26px">
+          <svg width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="7" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div>
+            <div style="font-size:26px;font-weight:600;letter-spacing:-.025em;color:var(--ink);line-height:1.1">Loom</div>
+            <div style="font-size:12.5px;color:var(--ink-dim);font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;margin-top:3px">a harness engineer's workstation</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 · Sizes & favicon -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">04</div>
+      <h2>Sizes</h2>
+    </div>
+    <div class="section-desc">
+      从 16px favicon 到 1024px app icon 全尺寸适配。<strong>小尺寸（≤24px）使用"紧凑变体"</strong>，简化为 1 条粗纬线，避免经线互相糊掉。
+    </div>
+
+    <div class="card">
+      <div class="card-label">Full variant · 32px 以上使用</div>
+      <div class="sizes">
+        <div class="size-item">
+          <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="5" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="5" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="8" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div class="lbl">32px</div>
+        </div>
+        <div class="size-item">
+          <svg width="48" height="48" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="6" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div class="lbl">48px</div>
+        </div>
+        <div class="size-item">
+          <svg width="64" height="64" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5.5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3.5" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div class="lbl">64px</div>
+        </div>
+        <div class="size-item">
+          <svg width="96" height="96" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="20" x2="32" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="38" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="44" y1="20" x2="44" y2="90" stroke="#c96f4d" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="90" x2="98" y2="90" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+            <line x1="26" y1="78" x2="98" y2="78" stroke="#1a1714" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <div class="lbl">96px</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Compact variant · ≤ 24px 使用</div>
+      <div style="font-size:13px;color:var(--ink-2);margin-bottom:16px;padding:0 4px">
+        当尺寸过小，3 条经线会糊成一片。<strong>紧凑版只保留 1 条加粗经线 + 1 条纬线</strong>——仍然构成 L 形，但更易识别。
+      </div>
+      <div class="sizes">
+        <div class="size-item">
+          <svg width="16" height="16" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#c96f4d" stroke-width="14" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#1a1714" stroke-width="14" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl">16px · favicon</div>
+        </div>
+        <div class="size-item">
+          <svg width="20" height="20" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#c96f4d" stroke-width="12" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#1a1714" stroke-width="12" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl">20px</div>
+        </div>
+        <div class="size-item">
+          <svg width="24" height="24" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#c96f4d" stroke-width="10" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#1a1714" stroke-width="10" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl">24px · nav</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Browser tab · actual render</div>
+      <div class="browser-mock">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="url">
+          <svg width="14" height="14" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#c96f4d" stroke-width="14" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#1a1714" stroke-width="14" stroke-linecap="round"/>
+          </svg>
+          <span class="domain">loom.local</span>
+          <span style="color:var(--ink-faint)">/station</span>
+        </div>
+      </div>
+      <div style="background:var(--bg);border:.5px solid var(--line);border-top:0;border-radius:0 0 10px 10px;padding:24px 20px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--ink-dim);text-transform:uppercase">Station</div>
+        <div style="font-size:20px;font-weight:600;letter-spacing:-.025em">Your workstation. <span style="color:var(--ink-dim);font-weight:500">Here's how it's running.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 · App icons -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">05</div>
+      <h2>App icons</h2>
+    </div>
+    <div class="section-desc">iOS / Android PWA / desktop 的 app icon。总是用<strong>紧凑变体</strong>，因为 app icon 在 home screen 上通常在 50-80px 范围。</div>
+
+    <div class="card">
+      <div class="app-icons-row" style="background:#dcd6c9;border-radius:10px;margin-top:0">
+        <div class="ios-icon light">
+          <svg width="72" height="72" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#c96f4d" stroke-width="11" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#1a1714" stroke-width="11" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl-below">light</div>
+        </div>
+        <div class="ios-icon primary">
+          <svg width="72" height="72" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#faf9f7" stroke-width="11" stroke-linecap="round" opacity=".92"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#faf9f7" stroke-width="11" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl-below">brand</div>
+        </div>
+        <div class="ios-icon ink">
+          <svg width="72" height="72" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="38" y1="20" x2="38" y2="88" stroke="#d88567" stroke-width="11" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="94" y2="88" stroke="#faf9f7" stroke-width="11" stroke-linecap="round"/>
+          </svg>
+          <div class="lbl-below">dark</div>
+        </div>
+      </div>
+      <div style="font-size:12.5px;color:var(--ink-dim);margin-top:18px;padding:0 4px">
+        建议默认使用 <strong style="color:var(--ink)">dark</strong> 版本作为 iOS/Android 主 icon——在主屏上识别度最高。brand 版作为替代主题可选。
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 · Colors -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">06</div>
+      <h2>Colors</h2>
+    </div>
+    <div class="section-desc">Loom 的完整配色系统。所有颜色和 PRD v6 §9.1 对齐。</div>
+
+    <div class="card">
+      <div class="card-label">Core</div>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="chip" style="background:#c96f4d"></div>
+          <div class="info">
+            <div class="name">Brand · 柔哑橙</div>
+            <div class="hex">#c96f4d</div>
+            <div class="use">Warp, logo 主色、CTA</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#1a1714"></div>
+          <div class="info">
+            <div class="name">Ink · 炭黑</div>
+            <div class="hex">#1a1714</div>
+            <div class="use">Weft, 主文字</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#faf9f7;border:.5px solid var(--line-2)"></div>
+          <div class="info">
+            <div class="name">Bg · 暖白</div>
+            <div class="hex">#faf9f7</div>
+            <div class="use">背景、反白</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#3a342c"></div>
+          <div class="info">
+            <div class="name">Ink-2 · 深棕</div>
+            <div class="hex">#3a342c</div>
+            <div class="use">次文字、user 气泡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Semantic · milestones 四分类</div>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="chip" style="background:#6b8e4e"></div>
+          <div class="info">
+            <div class="name">Leaf · 成就</div>
+            <div class="hex">#6b8e4e</div>
+            <div class="use">🏆 achievement</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#c96f4d"></div>
+          <div class="info">
+            <div class="name">Brand · 决策</div>
+            <div class="hex">#c96f4d</div>
+            <div class="use">🎯 decision</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#c89040"></div>
+          <div class="info">
+            <div class="name">Amber · 教训</div>
+            <div class="hex">#c89040</div>
+            <div class="use">⚠ lesson</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#6b6a8e"></div>
+          <div class="info">
+            <div class="name">Indigo · 模式</div>
+            <div class="hex">#6b6a8e</div>
+            <div class="use">💡 pattern</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 · Do / Don't -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">07</div>
+      <h2>Guidelines</h2>
+    </div>
+    <div class="section-desc">遵循这些规则，让 Loom logo 在任何场景下都保持一致的气质。</div>
+
+    <div class="dos-donts">
+      <div class="do-card">
+        <div class="tag">✓ Do</div>
+        <p>在小尺寸（≤24px）下切换到<strong>紧凑变体</strong>（1 经 + 1 纬）</p>
+        <p>保持 logo 周围至少 20% 尺寸的留白（clear space）</p>
+        <p>使用<strong>柔哑橙 #c96f4d</strong> 作为 warp 颜色，不要自作主张调色</p>
+        <p>在深色背景上使用 <strong>reversed</strong> 版本（warp 改 #d88567）</p>
+        <p>app icon 默认用 dark 版（炭黑底 + 橙黑线）</p>
+      </div>
+      <div class="dont-card">
+        <div class="tag">✗ Don't</div>
+        <p>不要改变经纬的比例关系（3 经 + 2 纬是产品哲学，不是设计选择）</p>
+        <p>不要给 logo 加阴影、渐变、光效</p>
+        <p>不要旋转或倾斜 logo（L 永远是正向的）</p>
+        <p>不要在 logo 周围写"inc."、"™"等小字</p>
+        <p>不要把 wordmark 里的 "Loom" 换成其他字体（IBM Plex Sans 600 only）</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 · Code / Export -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">08</div>
+      <h2>SVG source</h2>
+    </div>
+    <div class="section-desc">直接复制代码到 <code style="font-family:monospace;background:var(--surface-2);padding:1px 5px;border-radius:3px">loom/public/icon.svg</code>。</div>
+
+    <div class="card">
+      <div class="card-label">Primary (32px+)</div>
+      <div class="code-block"><span class="com">&lt;!-- loom-primary.svg · use at 32px or larger --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="str">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="str">"0 0 120 120"</span><span class="tag">&gt;</span>
+  <span class="com">&lt;!-- warps · mission · #c96f4d --&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"32"</span> <span class="attr">y1</span>=<span class="str">"20"</span> <span class="attr">x2</span>=<span class="str">"32"</span> <span class="attr">y2</span>=<span class="str">"90"</span> <span class="attr">stroke</span>=<span class="str">"#c96f4d"</span> <span class="attr">stroke-width</span>=<span class="str">"3"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"38"</span> <span class="attr">y1</span>=<span class="str">"20"</span> <span class="attr">x2</span>=<span class="str">"38"</span> <span class="attr">y2</span>=<span class="str">"90"</span> <span class="attr">stroke</span>=<span class="str">"#c96f4d"</span> <span class="attr">stroke-width</span>=<span class="str">"3"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"44"</span> <span class="attr">y1</span>=<span class="str">"20"</span> <span class="attr">x2</span>=<span class="str">"44"</span> <span class="attr">y2</span>=<span class="str">"90"</span> <span class="attr">stroke</span>=<span class="str">"#c96f4d"</span> <span class="attr">stroke-width</span>=<span class="str">"3"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+  <span class="com">&lt;!-- wefts · task · #1a1714 --&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"26"</span> <span class="attr">y1</span>=<span class="str">"90"</span> <span class="attr">x2</span>=<span class="str">"98"</span> <span class="attr">y2</span>=<span class="str">"90"</span> <span class="attr">stroke</span>=<span class="str">"#1a1714"</span> <span class="attr">stroke-width</span>=<span class="str">"5"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"26"</span> <span class="attr">y1</span>=<span class="str">"78"</span> <span class="attr">x2</span>=<span class="str">"98"</span> <span class="attr">y2</span>=<span class="str">"78"</span> <span class="attr">stroke</span>=<span class="str">"#1a1714"</span> <span class="attr">stroke-width</span>=<span class="str">"3"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span> <span class="attr">opacity</span>=<span class="str">"0.5"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Compact (≤ 24px · favicon)</div>
+      <div class="code-block"><span class="com">&lt;!-- loom-favicon.svg · use at 24px or smaller --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="str">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="str">"0 0 120 120"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"38"</span> <span class="attr">y1</span>=<span class="str">"20"</span> <span class="attr">x2</span>=<span class="str">"38"</span> <span class="attr">y2</span>=<span class="str">"88"</span> <span class="attr">stroke</span>=<span class="str">"#c96f4d"</span> <span class="attr">stroke-width</span>=<span class="str">"14"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="str">"28"</span> <span class="attr">y1</span>=<span class="str">"88"</span> <span class="attr">x2</span>=<span class="str">"94"</span> <span class="attr">y2</span>=<span class="str">"88"</span> <span class="attr">stroke</span>=<span class="str">"#1a1714"</span> <span class="attr">stroke-width</span>=<span class="str">"14"</span> <span class="attr">stroke-linecap</span>=<span class="str">"round"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="20" x2="32" y2="90" stroke="#d88567" stroke-width="4" stroke-linecap="round"/>
+      <line x1="38" y1="20" x2="38" y2="90" stroke="#d88567" stroke-width="4" stroke-linecap="round"/>
+      <line x1="44" y1="20" x2="44" y2="90" stroke="#d88567" stroke-width="4" stroke-linecap="round"/>
+      <line x1="26" y1="90" x2="98" y2="90" stroke="#faf9f7" stroke-width="6" stroke-linecap="round"/>
+      <line x1="26" y1="78" x2="98" y2="78" stroke="#faf9f7" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+    </svg>
+    <div class="cta-text">
+      <div class="t">Brand Kit v1.0 · Ready to ship</div>
+      <div class="s">这是 Loom 的第一版 brand kit。所有 SVG 可直接使用，无需转换。</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
