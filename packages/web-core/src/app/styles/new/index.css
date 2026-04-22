@@ -136,6 +136,11 @@ html {
     --success: 91 29% 43%;
     --merged: 242 14% 49%;
 
+    /* Brand soft tints (HSL channels mirroring --loom-brand-soft rgba values
+       so they work via hsl(var(--brand-soft) / <alpha>) in Tailwind). */
+    --brand-soft: 16 54% 55% / 0.08;
+    --brand-soft-2: 16 54% 55% / 0.14;
+
     /* Text on accent */
     --text-on-brand: 0 0% 100%;
   }
@@ -193,6 +198,10 @@ html {
     --error: 0 45% 51%;
     --success: 91 29% 43%;
     --merged: 242 14% 55%;
+
+    /* Brand soft tints (dark) */
+    --brand-soft: 16 54% 55% / 0.12;
+    --brand-soft-2: 16 54% 55% / 0.18;
 
     /* Text on accent */
     --text-on-brand: 0 0% 100%;

@@ -121,6 +121,8 @@ module.exports = {
         brand: "hsl(var(--brand))",
         'brand-hover': "hsl(var(--brand-hover))",
         'brand-secondary': "hsl(var(--brand-secondary))",
+        'brand-soft': "hsl(var(--brand-soft))",
+        'brand-soft-2': "hsl(var(--brand-soft-2))",
         error: "hsl(var(--error))",
         success: "hsl(var(--success))",
         merged: "hsl(var(--merged))",

@@ -10,9 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OnboardingSignInRouteImport } from './routes/onboarding_.sign-in'
+import { Route as ShellThreadsRouteImport } from './routes/_shell.threads'
+import { Route as ShellStationRouteImport } from './routes/_shell.station'
+import { Route as ShellMissionsRouteImport } from './routes/_shell.missions'
+import { Route as ShellMindRouteImport } from './routes/_shell.mind'
+import { Route as ShellDispatchRouteImport } from './routes/_shell.dispatch'
 import { Route as AppWorkspacesRouteImport } from './routes/_app.workspaces'
 import { Route as AppNotificationsRouteImport } from './routes/_app.notifications'
 import { Route as AppExportRouteImport } from './routes/_app.export'
@@ -38,6 +44,10 @@ const OnboardingRoute = OnboardingRouteImport.update({
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellRoute = ShellRouteImport.update({
+  id: '/_shell',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
@@ -51,6 +61,31 @@ const OnboardingSignInRoute = OnboardingSignInRouteImport.update({
   id: '/onboarding_/sign-in',
   path: '/onboarding/sign-in',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ShellThreadsRoute = ShellThreadsRouteImport.update({
+  id: '/threads',
+  path: '/threads',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellStationRoute = ShellStationRouteImport.update({
+  id: '/station',
+  path: '/station',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMissionsRoute = ShellMissionsRouteImport.update({
+  id: '/missions',
+  path: '/missions',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMindRoute = ShellMindRouteImport.update({
+  id: '/mind',
+  path: '/mind',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDispatchRoute = ShellDispatchRouteImport.update({
+  id: '/dispatch',
+  path: '/dispatch',
+  getParentRoute: () => ShellRoute,
 } as any)
 const AppWorkspacesRoute = AppWorkspacesRouteImport.update({
   id: '/workspaces',
@@ -172,6 +207,11 @@ export interface FileRoutesByFullPath {
   '/export': typeof AppExportRoute
   '/notifications': typeof AppNotificationsRoute
   '/workspaces': typeof AppWorkspacesRoute
+  '/dispatch': typeof ShellDispatchRoute
+  '/mind': typeof ShellMindRoute
+  '/missions': typeof ShellMissionsRoute
+  '/station': typeof ShellStationRoute
+  '/threads': typeof ShellThreadsRoute
   '/onboarding/sign-in': typeof OnboardingSignInRoute
   '/projects/$projectId': typeof AppProjectsProjectIdRoute
   '/workspaces/$workspaceId': typeof AppWorkspacesWorkspaceIdRoute
@@ -196,6 +236,11 @@ export interface FileRoutesByTo {
   '/export': typeof AppExportRoute
   '/notifications': typeof AppNotificationsRoute
   '/workspaces': typeof AppWorkspacesRoute
+  '/dispatch': typeof ShellDispatchRoute
+  '/mind': typeof ShellMindRoute
+  '/missions': typeof ShellMissionsRoute
+  '/station': typeof ShellStationRoute
+  '/threads': typeof ShellThreadsRoute
   '/onboarding/sign-in': typeof OnboardingSignInRoute
   '/projects/$projectId': typeof AppProjectsProjectIdRoute
   '/workspaces/$workspaceId': typeof AppWorkspacesWorkspaceIdRoute
@@ -218,10 +263,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
+  '/_shell': typeof ShellRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/_app/export': typeof AppExportRoute
   '/_app/notifications': typeof AppNotificationsRoute
   '/_app/workspaces': typeof AppWorkspacesRoute
+  '/_shell/dispatch': typeof ShellDispatchRoute
+  '/_shell/mind': typeof ShellMindRoute
+  '/_shell/missions': typeof ShellMissionsRoute
+  '/_shell/station': typeof ShellStationRoute
+  '/_shell/threads': typeof ShellThreadsRoute
   '/onboarding_/sign-in': typeof OnboardingSignInRoute
   '/_app/projects/$projectId': typeof AppProjectsProjectIdRoute
   '/_app/workspaces_/$workspaceId': typeof AppWorkspacesWorkspaceIdRoute
@@ -248,6 +299,11 @@ export interface FileRouteTypes {
     | '/export'
     | '/notifications'
     | '/workspaces'
+    | '/dispatch'
+    | '/mind'
+    | '/missions'
+    | '/station'
+    | '/threads'
     | '/onboarding/sign-in'
     | '/projects/$projectId'
     | '/workspaces/$workspaceId'
@@ -272,6 +328,11 @@ export interface FileRouteTypes {
     | '/export'
     | '/notifications'
     | '/workspaces'
+    | '/dispatch'
+    | '/mind'
+    | '/missions'
+    | '/station'
+    | '/threads'
     | '/onboarding/sign-in'
     | '/projects/$projectId'
     | '/workspaces/$workspaceId'
@@ -293,10 +354,16 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_app'
+    | '/_shell'
     | '/onboarding'
     | '/_app/export'
     | '/_app/notifications'
     | '/_app/workspaces'
+    | '/_shell/dispatch'
+    | '/_shell/mind'
+    | '/_shell/missions'
+    | '/_shell/station'
+    | '/_shell/threads'
     | '/onboarding_/sign-in'
     | '/_app/projects/$projectId'
     | '/_app/workspaces_/$workspaceId'
@@ -319,6 +386,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  ShellRoute: typeof ShellRouteWithChildren
   OnboardingRoute: typeof OnboardingRoute
   OnboardingSignInRoute: typeof OnboardingSignInRoute
   WorkspacesWorkspaceIdVscodeRoute: typeof WorkspacesWorkspaceIdVscodeRoute
@@ -332,6 +400,13 @@ declare module '@tanstack/react-router' {
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_shell': {
+      id: '/_shell'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ShellRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
@@ -354,6 +429,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/onboarding/sign-in'
       preLoaderRoute: typeof OnboardingSignInRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_shell/threads': {
+      id: '/_shell/threads'
+      path: '/threads'
+      fullPath: '/threads'
+      preLoaderRoute: typeof ShellThreadsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/station': {
+      id: '/_shell/station'
+      path: '/station'
+      fullPath: '/station'
+      preLoaderRoute: typeof ShellStationRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/missions': {
+      id: '/_shell/missions'
+      path: '/missions'
+      fullPath: '/missions'
+      preLoaderRoute: typeof ShellMissionsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/mind': {
+      id: '/_shell/mind'
+      path: '/mind'
+      fullPath: '/mind'
+      preLoaderRoute: typeof ShellMindRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/dispatch': {
+      id: '/_shell/dispatch'
+      path: '/dispatch'
+      fullPath: '/dispatch'
+      preLoaderRoute: typeof ShellDispatchRouteImport
+      parentRoute: typeof ShellRoute
     }
     '/_app/workspaces': {
       id: '/_app/workspaces'
@@ -541,9 +651,28 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
+interface ShellRouteChildren {
+  ShellDispatchRoute: typeof ShellDispatchRoute
+  ShellMindRoute: typeof ShellMindRoute
+  ShellMissionsRoute: typeof ShellMissionsRoute
+  ShellStationRoute: typeof ShellStationRoute
+  ShellThreadsRoute: typeof ShellThreadsRoute
+}
+
+const ShellRouteChildren: ShellRouteChildren = {
+  ShellDispatchRoute: ShellDispatchRoute,
+  ShellMindRoute: ShellMindRoute,
+  ShellMissionsRoute: ShellMissionsRoute,
+  ShellStationRoute: ShellStationRoute,
+  ShellThreadsRoute: ShellThreadsRoute,
+}
+
+const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  ShellRoute: ShellRouteWithChildren,
   OnboardingRoute: OnboardingRoute,
   OnboardingSignInRoute: OnboardingSignInRoute,
   WorkspacesWorkspaceIdVscodeRoute: WorkspacesWorkspaceIdVscodeRoute,
