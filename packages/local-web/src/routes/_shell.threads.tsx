@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { InboxBanner } from '@web/app/threads/InboxBanner';
-import { ThreadsFallback } from '@web/app/threads/ThreadsFallback';
+import { WorkspacesSidebarContainer } from '@/pages/workspaces/WorkspacesSidebarContainer';
 
 const MOCK_INBOX = [{ kind: 'needs-you' as const, count: 2 }];
 
@@ -22,7 +22,7 @@ function ThreadsRoute() {
 
       <div className="pb-10 pt-2">
         <InboxBanner items={MOCK_INBOX} />
-        <ThreadsFallback />
+        <WorkspacesSidebarContainer />
       </div>
     </div>
   );
