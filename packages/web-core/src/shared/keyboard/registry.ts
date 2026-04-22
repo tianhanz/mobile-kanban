@@ -374,7 +374,7 @@ export const keyBindings: KeyBinding[] = [
     action: Action.CREATE,
     keys: 'c',
     scopes: [Scope.KANBAN],
-    description: 'Create new task',
+    description: 'Create new thread',
     group: 'Kanban',
   },
   {
@@ -492,14 +492,14 @@ export const keyBindings: KeyBinding[] = [
     action: Action.SUBMIT_TASK,
     keys: ['meta+enter', 'ctrl+enter'],
     scopes: [Scope.DIALOG],
-    description: 'Submit task form (Create & Start or Update)',
+    description: 'Submit thread form (Create & Start or Update)',
     group: 'Dialog',
   },
   {
     action: Action.SUBMIT_TASK_ALT,
     keys: ['meta+shift+enter', 'ctrl+shift+enter'],
     scopes: [Scope.DIALOG],
-    description: 'Submit task form (Create Task)',
+    description: 'Submit thread form (Create Thread)',
     group: 'Dialog',
   },
   {
