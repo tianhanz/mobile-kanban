@@ -1,11 +1,16 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router';
+import { createFileRoute, Outlet, useParams } from '@tanstack/react-router';
 import { TabShell } from '@web/app/shell/TabShell';
+import { LoomRouteProviders } from '@web/app/providers/LoomRouteProviders';
 
 function ShellRouteComponent() {
+  const { hostId } = useParams({ strict: false });
+
   return (
-    <TabShell>
-      <Outlet />
-    </TabShell>
+    <LoomRouteProviders hostId={hostId}>
+      <TabShell>
+        <Outlet />
+      </TabShell>
+    </LoomRouteProviders>
   );
 }
 
